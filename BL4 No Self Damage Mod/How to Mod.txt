@@ -1,0 +1,64 @@
+- Use Borderlands4.NcsToolkit.GUI to parse NCS.
+	-Create a Snapshot
+	-On the Editor tab, click Snapshot subtab
+	-Find the Nexus-Data-Resident0 NCS file
+	-Click Open In Editor
+	-Switch the mode to text
+	-Locate "reflectedprojectiledamagetags" in the "def_globals_damage" object.
+	-*Paste the code (listed below) underneath it.
+	-Click Save and close the editor
+	-Click Generate <name>.ncs
+	-Find file in toolkit folder, usually: Borderlands4.NcsToolkit.GUI\workspace\snapshots\[snapshot version]\Nexus-Data-Resident0.ncs
+	
+
+ -Repackage the NCS file as a .Pak file
+	-Put your NCS file in this folder structure: pakchunk101-Windows_101_P\Engine\Content\_NCS\Nexus-Data-Resident0.ncs
+		-The number can change from 101, just make sure both numbers are the same and greater than 99.
+	-Drag the pakchunk folder over the "UnrealPak-With-Compression.bat" file in the UnrealPak folder
+	-The pakchunk folder you dragged now contains the pak file
+
+-To play, copy the new pak file into the borderlands 4 pak directory: Steam\steamapps\common\Borderlands 4\OakGame\Content\Paks
+-To deploy to Nexus Mods, ZIP the pak file in a folder that describes the mod. For example, the "No Self Damage" .pak file should be zipped in a "No Self Damage" folder
+
+*Use the below code to create the no self damage  mod. paste it right below "reflectedprojectiledamagetags". 
+                "selfdamagescale": {
+                  "__type": "map:read_only",
+                  "value": {
+                    "constant": {
+                      "__type": "scalar:read_only",
+                      "value": "0.000000"
+                    },
+                    "postscale": {
+                      "__type": "scalar:read_only",
+                      "value": "1.000000"
+                    }
+                  }
+                },
+
+Final code should look like:
+                "reflectedprojectiledamagetags": {
+                  "__type": "sequence:self_key_or_tag_wrapper, read_only",
+                  "value": [
+                    {
+                      "__type": "scalar:self_key_or_tag_wrapper, read_only",
+                      "value": {
+                        "reflectedprojectile": "ReflectedProjectile"
+                      }
+                    }
+                  ]
+                },
+                "selfdamagescale": {
+                  "__type": "map:read_only",
+                  "value": {
+                    "constant": {
+                      "__type": "scalar:read_only",
+                      "value": "0.000000"
+                    },
+                    "postscale": {
+                      "__type": "scalar:read_only",
+                      "value": "1.000000"
+                    }
+                  }
+                },
+
+
