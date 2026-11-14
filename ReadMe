@@ -1,1 +1,5 @@
 This repo is a backup for my Borderlands 4 mods, including the No Self Damage mod. You can find it on Nexus Mods here: https://www.nexusmods.com/borderlands4/mods/320
+
+For .pak mods, the below tools are critical:
+ - Borderlands4.NcsToolkit.GUI - the NCS Toolkit by Cr4nkSt4r is crucial. You can find the toolkit in the BL4 Community: https://discord.gg/TbaUnwhaV
+ - UnrealPak - used to create paks from the edited NCS files from the NCS Toolkit 
